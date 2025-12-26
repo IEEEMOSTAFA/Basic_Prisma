@@ -72,16 +72,87 @@ console.dir(users, {depth: Infinity});
 
 
 
-const updateUser = await prisma.user.update({
-  where: {
-    email: 'sk@gmail.com',
-  },
-  data: {
-    name: 'Viola the Magnificent',
-  },
-})
+// const updateUser = await prisma.user.update({
+//   where: {
+//     email: 'sk@gmail.com',
+//   },
+//   data: {
+//     name: 'Viola the Magnificent',
+//   },
+// })
 
-console.log("UpdateUser",updateUser);
+// console.log("UpdateUser",updateUser);
+
+
+
+
+
+// Delete operation
+
+// const deleteUser = await prisma.post.delete({
+//   where: {
+//     // email: "sk@gmail.com"
+//     id: 1
+//   }
+// });
+
+// console.log(deleteUser);
+
+
+// Upsert Method:
+let upsertUser = await prisma.user.upsert({
+  where:{
+    email:"muna@gmail.com"
+  },
+  update: {
+    name:"ieeemostafa"
+  },
+  create: {
+    email: "muns@gmail.com",
+    name: "chemMuna"
+  }
+});
+
+console.log("upsertUser",upsertUser);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// get user data by id:
+
+// let getUserDataById = await prisma.user.findUnique({
+//   where:{
+//     id:1
+//   },
+//   include: {
+//     posts: true,
+//     profile: true
+//   }
+// });
+// console.log("getUser",getUserDataById);
+
+
+
+
+
 
 //     name: 'Md_Al_Mostafa Orginal',
 //     email: 'sk@gmail.com',
